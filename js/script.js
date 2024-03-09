@@ -6,7 +6,7 @@ const ALPHA_m = ALPHA_M.toLowerCase(); //alpha_m
 const num = "0123456789";
 const special = "!@#$%^&*()_+-=[]{}|;':,./<>?";
 
-const nbCaracter = 10; //document.getElementById("nbCaracter");
+const nbCaracter = 14; //document.getElementById("nbCaracter");
 const nbpassword = 10; //document.getElementById("nbpassword");
 const uppercase = document.getElementById("uppercase");
 const lowercase = document.getElementById("lowercase");
