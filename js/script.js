@@ -8,7 +8,7 @@ const CARACTERES_SPECIAUX = "!@#$%^&*()_+-=[]{}|;':,./<>?";
 
 const NOMBRE_CARACTERES_PAR_DEFAUT = 10;
 const NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT = 20;
-
+let countNombreMotsDePasse = 0;
 /* Références aux éléments du DOM (en supposant que ces éléments existent dans votre HTML) */
 const caseCocherMajuscule = document.getElementById("uppercase");
 const caseCocherMinuscule = document.getElementById("lowercase");
@@ -98,6 +98,36 @@ function genererMotDePasse() {
         listeMotsDePasse.appendChild(elementMotDePasse);
     }
 }
+
+
+/*Plus*/
+btnPlus.addEventListener("click", () =>
+    (
+        champNombreMotsDePasse.value = Number(champNombreMotsDePasse.value) + 1
+    ));
+/*Moin*/
+btnMin.addEventListener("click", () =>
+    (
+        champNombreMotsDePasse.value = Number(champNombreMotsDePasse.value) - 1
+    ));
+/*Export*/
+btnexport.addEventListener("click", function () {
+    /*
+    const csvRows = [];
+    const headers = Object.keys(motsDePasseGenerees[0]);
+    csvRows.push(headers.join(','));
+
+    for (const row of motsDePasseGenerees) {
+        const values = headers.map(header => {
+            const escaped = ('' + row[header]).replace(/"/g, '\\"');
+            return `"${escaped}"`;
+        });
+        csvRows.push(values.join(','));
+    }
+
+    return csvRows.join('\n');*/
+});
+
 
 boutonGenerer.addEventListener("click", genererMotDePasse);
 champNombreCaracteres.addEventListener("click", genereroption);

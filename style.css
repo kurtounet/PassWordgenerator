@@ -10,6 +10,8 @@
     font-style: normal;
 }
 
+
+
 section#section1 {
     display: flex;
     flex-direction: column;
@@ -19,17 +21,17 @@ section#section1 {
 
 section#section1 h1 {
     font-family: 'Roboto', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     text-shadow: rgb(189, 189, 188) 1px 0 10px;
-    margin: 20px;
+    margin: 10px;
+    text-align: center;
 }
 
 section#section1 #divform {
     border: 1px solid #000;
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-
     padding: 20px
 }
 
@@ -52,27 +54,49 @@ section#section1 #divform div div.field label {
 }
 
 
-section#section1 #divform div #btn {
-    background-color: blueviolet;
+section#section1 #divform div #divButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.btn {
     border-radius: 8px;
     color: #fff;
-    margin: 20px 0px;
+    margin: 20px 10px;
     padding: 5px;
-    width: 100%;
+    width: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
 
+
+section#section1 #divform div div.field #nbpassword,
+section#section1 #divform div div.field button#btnMin,
+section#section1 #divform div div.field button#btnPlus {
+    text-align: center;
+    width: 30px;
+    height: 25px;
+}
+
+section#section1 #divform div #divButton #btnexport {
+    background-color: blue;
+}
+
+section#section1 #divform div #divButton #btn {
+    background-color: red;
 }
 
 section#result-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 section#result-list ul {
     width: 100%;
     margin: 10px;
-
 }
 
 section#result-list ul li {
@@ -81,16 +105,34 @@ section#result-list ul li {
     align-items: center;
     color: red;
     border-radius: 8px;
+    border: 1px solid #000;
     list-style: none;
     margin: 10px;
     padding: 10px 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+section#result-list ul li:hover {
+    color: white;
+    background-color: red;
+}
+
+
+
+
 section#result-list ul li img {
     width: 20px;
     height: 20px;
     object-fit: contain;
     cursor: pointer;
+
+}
+
+@media screen and (max-width: 576px) {
+    section#section1 div#divform div div#divButton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 }

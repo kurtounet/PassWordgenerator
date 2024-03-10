@@ -18,6 +18,11 @@
                 <div class="field">
                     <input type="checkbox" id="uppercase" checked>
                     <label for="uppercase"> Avec des Majuscules (A B C D ...)</label>
+                    <!--
+                    <input type="checkbox" id="uppercaseOption" aria-label="Option de majuscules">
+                    <input type="text" id="minUppercase" aria-label="Nb Mininum de Majuscules" value="0">
+                    <input type="text" id="maxUppercase" aria-label="Nb Maximum de Majuscules" value="0">
+                    -->
                 </div>
                 <div class="field">
 
@@ -42,10 +47,14 @@
                 </div>
                 <div class="field">
                     <label for="nbpassword"> Nombre de Mot de Passe</label>
-                    <input type="number" id="nbpassword" value="1" min="1" max="100"
-                        placeholder="Nombre de mots de passe">
+                    <button id="btnMin">-</button>
+                    <input type="text" id="nbpassword" value="1">
+                    <button id="btnPlus">+</button>
                 </div>
-                <button id="btn">Générer</button>
+                <div id="divButton">
+                    <button id="btn" class="btn">Générer</button>
+                    <button id="btnexport" class="btn">Exporter</button>
+                </div>
             </div>
             <section id="result-list">
                 <ul id="pwd-list"></ul>
