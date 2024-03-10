@@ -14,10 +14,10 @@
     <section id="section1">
         <div id="divform">
             <h1>Générateur de mots de passe</h1>
-            <form>
+            <div>
                 <div class="field">
                     <input type="checkbox" id="uppercase" checked>
-                    <label for="uppercase">Avec des Majuscules (A B C D ...)</label>
+                    <label for="uppercase"> Avec des Majuscules (A B C D ...)</label>
                 </div>
                 <div class="field">
 
@@ -27,15 +27,15 @@
                 <div class="field">
 
                     <input type="checkbox" id="numbers" checked>
-                    <label for="numbers">Avec des chiffres [1 2 3 4 ....]</label>
+                    <label for="numbers"> Avec des chiffres [1 2 3 4 ....]</label>
                 </div>
                 <div class="field">
 
                     <input type="checkbox" id="symbols" checked>
-                    <label for="symbols">Avec des Symboles</label>
+                    <label for="symbols"> Avec des Symboles</label>
                 </div>
                 <div class="field">
-                    <label for="passwordLength">Nombre de caractères</label>
+                    <label for="passwordLength"> Nombre de caractères</label>
                     <select id="nbCaracter">
                         <option value="4">4</option>
                         <option value="5">5</option>
@@ -43,11 +43,11 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label for="nbpassword">Nombre de Mot de Passe</label>
+                    <label for="nbpassword"> Nombre de Mot de Passe</label>
                     <input type="number" id="nbpassword " value="10" min="4">
                 </div>
                 <button id="btn">Générer</button>
-            </form>
+            </div>
             <section id="result-list">
                 <ul id="pwd-list"></ul>
 
@@ -55,7 +55,7 @@
         </div>
     </section>
 
-    <script src="./js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
