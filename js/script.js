@@ -6,7 +6,7 @@ const LETTRES_MINUSCULES = LETTRES_MAJUSCULES.toLowerCase();
 const CHIFFRES = "0123456789";
 const CARACTERES_SPECIAUX = "!@#$%^&*()_+-=[]{}|;':,./<>?";
 
-const NOMBRE_CARACTERES_PAR_DEFAUT = 14;
+const NOMBRE_CARACTERES_PAR_DEFAUT = 10;
 const NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT = 20;
 
 /* Références aux éléments du DOM (en supposant que ces éléments existent dans votre HTML) */
@@ -29,8 +29,8 @@ function copierMotDePasse(id) {
 
 function genererMotDePasse() {
     /* Récupérer la saisie de l'utilisateur (si disponible), en garantissant des valeurs valides */
-    const nombreCaracteres = NOMBRE_CARACTERES_PAR_DEFAUT; //Number(champNombreCaracteres.value);
-    const nombreMotsDePasse = NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT; //champNombreMotsDePasse.value;
+    const nombreCaracteres = Number(champNombreCaracteres.value); //NOMBRE_CARACTERES_PAR_DEFAUT; 
+    const nombreMotsDePasse = champNombreMotsDePasse.value; //champNombreMotsDePasse.value;//NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT;
     console.log(nombreMotsDePasse);
     /*
         if (nombreCaracteres < 8 || nombreCaracteres > 128) {
@@ -100,3 +100,14 @@ function genererMotDePasse() {
 }
 
 boutonGenerer.addEventListener("click", genererMotDePasse);
+champNombreCaracteres.addEventListener("click", genereroption);
+
+function genereroption() {
+    for (let i = 0; i < 100; i++) {
+        const op = document.createElement("option")
+        op.textContent = i;
+        op.value = i;
+        champNombreCaracteres.appendChild(op);
+    }
+
+}
