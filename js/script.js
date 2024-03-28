@@ -44,20 +44,20 @@ function genererMotDePasse() {
         }
     */
     /* Construire le pool de caractères en fonction des sélections de l'utilisateur */
-    let poolCaracteres = "";
+    let listeCaracteres = "";
     if (caseCocherMajuscule.checked) {
-        poolCaracteres += LETTRES_MAJUSCULES;
+        listeCaracteres += LETTRES_MAJUSCULES;
     }
     if (caseCocherMinuscule.checked) {
-        poolCaracteres += LETTRES_MINUSCULES;
+        listeCaracteres += LETTRES_MINUSCULES;
     }
     if (caseCocherChiffres.checked) {
-        poolCaracteres += CHIFFRES;
+        listeCaracteres += CHIFFRES;
     }
     if (caseCocherSymboles.checked) {
-        poolCaracteres += CARACTERES_SPECIAUX;
+        listeCaracteres += CARACTERES_SPECIAUX;
     }
-    if (poolCaracteres.length === 0) {
+    if (listeCaracteres.length === 0) {
         alert("Veuillez sélectionner au moins un type de caractère.");
         return;
     }
@@ -67,8 +67,8 @@ function genererMotDePasse() {
     for (let i = 0; i < nombreMotsDePasse; i++) {
         let motDePasse = "";
         for (let j = 0; j < nombreCaracteres; j++) {
-            const indexAleatoire = Math.floor(Math.random() * poolCaracteres.length);
-            motDePasse += poolCaracteres.charAt(indexAleatoire);
+            const indexAleatoire = Math.floor(Math.random()  * listeCaracteres.length);
+            motDePasse += listeCaracteres.charAt(indexAleatoire);
         }
         motsDePasseGenerees.push(motDePasse);
     }
