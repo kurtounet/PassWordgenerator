@@ -5,17 +5,17 @@ const LETTRES_MAJUSCULES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LETTRES_MINUSCULES = LETTRES_MAJUSCULES.toLowerCase();
 const CHIFFRES = "0123456789";
 const CARACTERES_SPECIAUX = "!@#$%^&*()_+-=[]{}|;':,./<>?";
-
+const motsDePasseGenerees = [];
 const NOMBRE_CARACTERES_PAR_DEFAUT = 10;
 const NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT = 20;
 let countNombreMotsDePasse = 0;
-/* Références aux éléments du DOM (en supposant que ces éléments existent dans votre HTML) */
+/* Références aux éléments du DOM*/
 const caseCocherMajuscule = document.getElementById("uppercase");
 const caseCocherMinuscule = document.getElementById("lowercase");
 const caseCocherChiffres = document.getElementById("numbers");
 const caseCocherSymboles = document.getElementById("symbols");
-const champNombreCaracteres = document.getElementById("nbCaracter"); // En supposant que c'est pour la saisie utilisateur
-const champNombreMotsDePasse = document.getElementById("nbpassword"); // En supposant que c'est pour la saisie utilisateur
+const champNombreCaracteres = document.getElementById("nbCaracter");  
+const champNombreMotsDePasse = document.getElementById("nbpassword");  
 const listeMotsDePasse = document.getElementById("pwd-list");
 const boutonGenerer = document.getElementById("btn");
 
@@ -28,7 +28,7 @@ function copierMotDePasse(id) {
 
 
 function genererMotDePasse() {
-    /* Récupérer la saisie de l'utilisateur (si disponible), en garantissant des valeurs valides */
+     
     const nombreCaracteres = Number(champNombreCaracteres.value); //NOMBRE_CARACTERES_PAR_DEFAUT; 
     const nombreMotsDePasse = champNombreMotsDePasse.value; //champNombreMotsDePasse.value;//NOMBRE_MOTS_DE_PASSE_PAR_DEFAUT;
     console.log(nombreMotsDePasse);
@@ -57,14 +57,13 @@ function genererMotDePasse() {
     if (caseCocherSymboles.checked) {
         poolCaracteres += CARACTERES_SPECIAUX;
     }
-
     if (poolCaracteres.length === 0) {
         alert("Veuillez sélectionner au moins un type de caractère.");
         return;
     }
 
     /* Générer des mots de passe */
-    const motsDePasseGenerees = [];
+    
     for (let i = 0; i < nombreMotsDePasse; i++) {
         let motDePasse = "";
         for (let j = 0; j < nombreCaracteres; j++) {
@@ -111,21 +110,19 @@ btnMin.addEventListener("click", () =>
         champNombreMotsDePasse.value = Number(champNombreMotsDePasse.value) - 1
     ));
 /*Export*/
-btnexport.addEventListener("click", function () {
-    /*
-    const csvRows = [];
-    const headers = Object.keys(motsDePasseGenerees[0]);
-    csvRows.push(headers.join(','));
-
-    for (const row of motsDePasseGenerees) {
-        const values = headers.map(header => {
-            const escaped = ('' + row[header]).replace(/"/g, '\\"');
-            return `"${escaped}"`;
-        });
-        csvRows.push(values.join(','));
+btnexport.addEventListener("click", function () {   
+    if (motsDePasseGenerees.length === 0) {
+        alert("Veuillez d'abord générer un mot de passe.");
+        return;
+    }else{
+    const blob = new Blob([motsDePasseGenerees.join("\n") ], { type: 'text/plain' });
+    const anchor = document.createElement('a');
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.download = "motdepasse.txt";
+    anchor.click();
+    window.URL.revokeObjectURL(anchor.href);
     }
-
-    return csvRows.join('\n');*/
+    
 });
 
 
@@ -141,3 +138,22 @@ function genereroption() {
     }
 
 }
+
+// Fonction existante pour générer un mot de passe
+function generatePassword() {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    const passwordLength = document.getElementById("length").value;
+    let password = "";
+    for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+    }
+    document.getElementById("passwordDisplay").value = password;
+}
+
+// Nouvelle fonction pour exporter le mot de passe
+function exportPassword() {
+    
+}
+
+
